@@ -3,8 +3,98 @@
   color: var(--text-color);
 }
 
+h3 {
+  font-size: 64px;
+  letter-spacing: 3.2px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#Left-Strip {
+  width: 13px;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #b09e80 0%, rgba(179, 160, 126, 0) 100%);
+}
+
+header {
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+  justify-content: center;
+  align-items: center;
+  max-width: 80vw;
+  margin: 40px auto 0 auto;
+  .Menu-Options {
+    display: flex;
+    justify-content: flex-start;
+    svg {
+      margin-right: 86px;
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        margin: 0 10px;
+      }
+    }
+  }
+  #Action-Links {
+    text-align: right;
+    svg {
+      margin-left: 40px;
+    }
+  }
+}
+
 main {
   max-width: 1920px;
+  margin: auto;
+}
+
+#Landing-Page {
+  height: 100vh;
+  max-width: 86vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 36vw 50vw;
+  #Image-Carousel-Block {
+    grid-column: 2/3;
+  }
+  #Heading {
+    position: absolute;
+    left: 19vw;
+    top: 30vh;
+    h1 {
+
+      font-weight: 600;
+      font-size: 100px;
+      line-height: 120%;
+    }
+    #Explore-Button {
+      background: var(--text-color);
+      padding: 20px 40px;
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      margin-top: 20px;
+    }
+  }
+  #Social-Media-Icons {
+    position: absolute;
+    top: 13vw;
+    right: 12vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+  }
 }
 
 #Copyright-Strip {
@@ -17,18 +107,184 @@ main {
   justify-content: center;
 }
 
+#Shop-By-Room-Section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    margin-bottom: 100px;
+  }
+  #Image-Square {
+    display: grid;
+    grid-template-columns: 705px 705px;
+    grid-template-rows: 416px 93px 539px;
+    grid-gap: 30px;
+    width: 1440px;
+    transition: all 0.5s ease-in;
+    .Image-Square-Blocks {
+      img {
+        object-fit: cover;
+        width: 705px;
+      }
+      label {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        margin-top: 20px;
+        margin-left: 20px;
+        transition: all 0.2s ease-in;
+        p {
+          margin-right: 5px;
+          font-size: 24px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 6px 6px var(--color-black-opacity-18);
+        cursor: pointer;
+        label {
+          padding: 10px;
+          width: fit-content;
+          // border-bottom: 1px solid var(--text-color);
+          // background-color: var(--color-black-opacity-18);
+          // box-shadow: 0 0 6px 6px var(--color-black-opacity-18);
+          p {
+            font-weight: 500;
+            font-size: 36px;
+            width: 646px;
+            text-align: center;
+          }
+          svg {
+            opacity: 0;
+            display: none;
+          }
+        }
+      }
+    }
+    .Small-Image-Block {
+      &:hover {
+        label {
+          transform: translateY(188px);
+        }
+      }
+    }
+    .Large-Image-Block {
+      &:hover {
+        label {
+          transform: translateY(216px);
+        }
+      }
+    }
+    #Image-Square-Block-1 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      height: 416px;
+
+      img {
+        height: 416px;
+      }
+    }
+    #Image-Square-Block-2 {
+      grid-column: 2/3;
+      grid-row: 1/3;
+      img {
+        height: 539px;
+      }
+    }
+    #Image-Square-Block-3 {
+      grid-column: 1/2;
+      grid-row: 2/4;
+      height: 539px;
+
+      img {
+        height: 539px;
+      }
+    }
+    #Image-Square-Block-4 {
+      grid-column: 2/3;
+      grid-row: 3/4;
+      height: 416px;
+
+      img {
+        height: 416px;
+      }
+    }
+  }
+}
+
+#Featured-Products-Section {
+  p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--text-color-opacity-50);
+    text-align: center;
+    margin-top: 37px;
+    margin-bottom: 68px;
+  }
+  #Show-More-Button-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    .Round-Button {
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+      border: 1px solid var(--text-color);
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      box-shadow: 0 0 3px 3px var(--color-black-opacity-18);
+    }
+  }
+}
+
+#Quality-List-Section {
+  display: flex;
+  max-width: 1360px;
+  min-width: 900px;
+  width: 80vw;
+  justify-content: space-between;
+  margin: 150px auto;
+  .Quality-List-Item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    h6 {
+      margin: 32px 0 14px 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-color-opacity-60);
+    }
+  }
+}
+
 #Customized-Request-Section {
   margin-left: 126px;
   display: grid;
   grid-template-columns: 8fr 10fr;
   grid-template-rows: 557px;
   height: 557px;
+  #Customized-Request-Section-Left-Side {
+    padding-top: 30px;
+    padding-right: 2vw;
+  }
   h3 {
     font-size: 72px;
     font-weight: 600;
     letter-spacing: 6px;
     margin-bottom: 19px;
     line-height: 88px;
+    text-align: left;
   }
   #Customized-Subtitle {
     color: var(--color-primary-opacity-60);
@@ -45,7 +301,6 @@ main {
     font-weight: 600;
     color: var(--text-color-opacity-50);
     margin-bottom: 38px;
-
   }
 }
 
@@ -68,6 +323,7 @@ footer {
         list-style: none;
         li {
           margin-bottom: 6px;
+          display: flex;
           a {
             text-decoration: none;
             display: flex;
@@ -75,17 +331,25 @@ footer {
             &:hover {
               transform: translateX(6px);
             }
-
-            svg {
-              margin-right: 8px;
+          }
+          svg {
+            margin-right: 8px;
+          }
+          p,
+          address,
+          time {
+            font-size: 18px;
+            line-height: 120%;
+            color: var(--text-color);
+            span {
+              font-weight: 600;
             }
-            p {
-              font-size: 18px;
-              color: var(--text-color);
-              span {
-                font-weight: 600;
-              }
-            }
+          }
+        }
+        #Footer-List-Item-Address {
+          svg {
+            height: 20px;
+            width: 30px;
           }
         }
       }
@@ -137,7 +401,7 @@ footer {
 .Button {
   background: none;
   outline: none;
-
+  cursor: pointer;
   transition: all 0.2s ease-in;
   &:hover {
     box-shadow: 0 0 6px 6px var(--color-black-opacity-18);
