@@ -12,6 +12,7 @@ export class DiscountSalesWidgetComponent implements OnInit {
   @Input() promoAction: string = '';
   @Input() promoImage: string = '';
   @Input() backgroundColor: string = '';
+  @Input() textColor: String = '';
   bucketUrl: string;
 
   constructor() {

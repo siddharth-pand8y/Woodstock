@@ -11,7 +11,7 @@
   .Background-Box {
     margin-right: 15vw;
     margin-bottom: 100px;
-    max-height: 455px;
+    max-height: 380px;
     padding: 40px;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -37,11 +37,6 @@
       background: none;
       text-decoration-line: underline;
       cursor: pointer;
-      svg {
-        path {
-          fill: var(--text-color);
-        }
-      }
     }
   }
   img {
@@ -52,10 +47,14 @@
   }
 }
 
-@media screen and (min-width: 1441px) {
+@media (min-width: 1440px) {
   .Product-Promo {
     .Background-Box {
       margin-right: 125px;
+      h4 {
+        margin-right: 50px;
+        font-size: 48px;
+      }
     }
     img {
       margin-left: 390px;
