@@ -1011,13 +1011,10 @@ footer {
           label {
             padding: 10px;
             width: fit-content;
-            // border-bottom: 1px solid var(--text-color);
-            // background-color: var(--color-black-opacity-18);
-            // box-shadow: 0 0 6px 6px var(--color-black-opacity-18);
             p {
               font-weight: 500;
               font-size: 36px;
-              width: 646px;
+              width: 37vw;
               text-align: center;
             }
             svg {
@@ -1030,14 +1027,14 @@ footer {
       .Small-Image-Block {
         &:hover {
           label {
-            transform: translateY(188px);
+            transform: translateY(14vh);
           }
         }
       }
       .Large-Image-Block {
         &:hover {
           label {
-            transform: translateY(216px);
+            transform: translateY(18vh);
           }
         }
       }
