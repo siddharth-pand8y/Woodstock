@@ -127,13 +127,14 @@
   <main>
     <section id="Landing-Page">
       <div id="Image-Carousel-Indicator">
-        <div class="Circle-Active">
+        <div class="Circle-Active" *ngFor="let i of [0, 1, 2, 3]; index">
           <svg
             width="21"
             height="22"
             viewBox="0 0 21 22"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            (click)= "this.activeImage = i"
           >
             <ellipse
               cx="10.5"
@@ -143,17 +144,14 @@
               fill="#3A3A3A"
             />
             <path
-              opacity="0.6"
+              *ngIf="this.activeImage === i"
+              opacity="1"
               d="M19.5 11.1445C19.5 15.9373 15.506 19.8861 10.5 19.8861C5.49399 19.8861 1.5 15.9373 1.5 11.1445C1.5 6.35161 5.49399 2.40283 10.5 2.40283C15.506 2.40283 19.5 6.35161 19.5 11.1445Z"
               stroke="#3A3A3A"
               stroke-width="3"
             />
           </svg>
         </div>
-        <div class="Circle"></div>
-        <div class="Circle"></div>
-        <div class="Circle"></div>
-        <div class="Circle"></div>
       </div>
 
       <div id="Social-Media-Icons">
@@ -225,10 +223,14 @@
             <p>STARTS FROM $ 114.5</p>
           </div>
 
-          <img
-            src="https://woodstock.s3.ap-south-1.amazonaws.com/Landing-Page.jpg"
-            alt="Landing Page Image"
-          />
+          <ng-container *ngFor="let slide of carouselImages; let i = index">
+            <img
+              *ngIf="i === activeImage"
+              [src]="slide.src"
+              class="slide"
+              @slideAnimation
+            />
+          </ng-container>
 
           <!-- <label for=""></label>
         <img src="" alt="" />
@@ -244,7 +246,7 @@
             <a>Scroll</a>
           </div>
           <div class="Button-Block">
-            <button class="Button">
+            <button class="Button" (click)="this.changeImage('prev')">
               <svg
                 width="35"
                 height="35"
@@ -266,7 +268,7 @@
                 />
               </svg>
             </button>
-            <button class="Button">
+            <button class="Button" (click)="this.changeImage('next')">
               <svg
                 width="35"
                 height="35"
@@ -550,7 +552,6 @@
           'radial-gradient(50% 50% at 50% 50%, #BE885E 0%, rgba(190, 136, 94, 0.8) 100%)'
         "
         [textColor]="'#ffffff'"
-
       ></discount-sales-widget>
 
       <discount-sales-widget

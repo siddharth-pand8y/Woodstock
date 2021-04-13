@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
+import { scaleIn, scaleOut } from './animations/animations';
+import { trigger, transition, useAnimation } from '@angular/animations';
 
 interface productSchema {
   name: string;
@@ -12,9 +14,18 @@ interface productSchema {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('slideAnimation', [
+      /* scale */
+      transition('void => *', [
+        useAnimation(scaleIn, { params: { time: '500ms' } }),
+      ]),
+      transition('* => void', [
+        useAnimation(scaleOut, { params: { time: '500ms' } }),
+      ]),
+    ]),
+  ],
 })
-
-
 export class AppComponent {
   title = 'woodstock';
   selectedTab = 1;
@@ -28,14 +39,14 @@ export class AppComponent {
     },
     {
       name: 'MODERN WOOD SOFA',
-      price: 44.50,
+      price: 44.5,
       discount: 0,
       image: this.bucketUrl + 'products/product-2.png',
     },
     {
       name: 'OFFICE CHAIR SET',
-      price: 200.50,
-      discount: 50.10,
+      price: 200.5,
+      discount: 50.1,
       image: this.bucketUrl + 'products/product-3.png',
     },
     {
@@ -52,11 +63,47 @@ export class AppComponent {
     },
     {
       name: 'RED CUSHION SOFT',
-      price: 50.00,
+      price: 50.0,
       discount: 0,
       image: this.bucketUrl + 'products/product-6.png',
-    }
+    },
   ];
+  carouselImages = [
+    { src: 'https://woodstock.s3.ap-south-1.amazonaws.com/Landing-Page.jpg' },
+    {
+      src:
+        'https://woodstock.s3.ap-south-1.amazonaws.com/landing-page/Landing-Page-1.jpg',
+    },
+    {
+      src:
+        'https://woodstock.s3.ap-south-1.amazonaws.com/landing-page/Landing-Page-2.jpg',
+    },
+    {
+      src:
+        'https://woodstock.s3.ap-south-1.amazonaws.com/landing-page/Landing-Page-3.jpg',
+    },
+  ];
+  activeImage = 0;
+
+  constructor() {
+    setInterval(() => {
+      this.changeImage('next');
+    }, 5000);
+  }
+
+  changeImage(direction: string) {
+    if (direction === 'next') {
+      this.activeImage =
+        this.activeImage < this.carouselImages.length - 1
+          ? ++this.activeImage
+          : 0;
+    } else {
+      this.activeImage =
+        this.activeImage === 0
+          ? this.carouselImages.length - 1
+          : --this.activeImage;
+    }
+  }
   changeActiveTab(index: number) {
     this.selectedTab = index;
   }
